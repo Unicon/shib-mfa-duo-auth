@@ -12,6 +12,10 @@
             <util:list>
                 <bean parent="shibboleth.SAML2AuthnContextClassRef"
                       c:classRef="http://uchicago.edu/duo" />
+				<bean parent="shibboleth.SAML2AuthnContextClassRef"
+                      c:classRef="urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport" />
+				<bean parent="shibboleth.SAML2AuthnContextClassRef"
+                      c:classRef="http://id.incommon.org/assurance/silver" />
                 <bean parent="shibboleth.SAML1AuthenticationMethod"
                       c:method="http://uchicago.edu/duo" />
             </util:list>

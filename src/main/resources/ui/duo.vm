@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duo Velocity Template</title>
+<script src="/idp/duo/Duo-Web-v1.bundled.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/idp/duo/duo.css" />
+</head>
+<body>
+
+
+<!-- end DUO -->
+<script language="javascript">
+Duo.init({'host':'$duoHost', 'sig_request':'$duoRequest', 'post_action':'$actionUrl'});
+</script>
+
+<form method="POST" id="duo_form">
+	<input type="hidden" name="performauthentication" value="true" />
+</form>
+<iframe id="duo_iframe" frameborder="0"></iframe>
+</body>
+</html>
