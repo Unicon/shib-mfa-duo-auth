@@ -49,6 +49,7 @@ class ValidateDuoResponse extends AbstractValidationAction {
 
         // Check for a username/principalName in the Context
         this.username = (authenticationContext.parent.getSubcontext(SubjectContext)?:authenticationContext.parent.getSubcontext(SessionContext).idPSession).principalName
+	log.debug("${logPrefix} Username is ${this.username}")
         if (!(authenticationContext.parent.getSubcontext(SubjectContext)?:authenticationContext.parent.getSubcontext(SessionContext).idPSession).principalName) {
             log.info("${logPrefix} No previous principal name. This is bad")
             handleError(profileRequestContext, authenticationContext, 'NoCredentials', AuthnEventIds.NO_CREDENTIALS)
