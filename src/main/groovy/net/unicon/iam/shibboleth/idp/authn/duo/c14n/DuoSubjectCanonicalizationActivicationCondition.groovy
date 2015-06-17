@@ -3,7 +3,7 @@ package net.unicon.iam.shibboleth.idp.authn.duo.c14n
 import com.google.common.base.Predicate
 import net.shibboleth.idp.authn.context.SubjectCanonicalizationContext
 import org.opensaml.profile.context.ProfileRequestContext
-
+import net.unicon.iam.shibboleth.idp.authn.duo.authn.DuoPrincipal
 import javax.annotation.Nullable
 
 /**
