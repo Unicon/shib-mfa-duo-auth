@@ -31,20 +31,6 @@ class Config {
     @Autowired(required = false)
     private final FlowBuilderServices flowBuilderServices
 
-    @Resource(name = "shibboleth.AvailableAuthenticationFlows")
-    private final List<AuthenticationFlowDescriptor> shibbolethAvailableAuthenticationFlows
-
-    @Autowired
-    @Qualifier("authn/Duo")
-    private final AuthenticationFlowDescriptor duoAuthnDescriptor
-
-    @Resource(name = "shibboleth.PostLoginSubjectCanonicalizationFlows")
-    private final List<SubjectCanonicalizationFlowDescriptor> shibbolethPostLoginSubjectCanonicalizationFlows
-
-    @Autowired
-    @Qualifier('c14n/Duo')
-    private final SubjectCanonicalizationFlowDescriptor duoCanonicalizationDescriptor
-
     @PostConstruct
     def setup() {
         // Build the flows and register them
@@ -57,8 +43,5 @@ class Config {
             flowRegistry.registerFlowDefinition(flowDefinitionRegistry.getFlowDefinition(it))
         }
 
-        // add the flow descriptors for use in shibboleth
-        shibbolethAvailableAuthenticationFlows.add(duoAuthnDescriptor)
-        shibbolethPostLoginSubjectCanonicalizationFlows.add(duoCanonicalizationDescriptor)
     }
 }
