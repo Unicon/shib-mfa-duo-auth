@@ -9,7 +9,7 @@
                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="net.unicon.iam.shibboleth.idp.authn.duo.global" />
     <bean id="authn/Duo" parent="shibboleth.AuthenticationFlow"
-          p:nonBrowserSupported="false">
+          p:nonBrowserSupported="false" p:forcedAuthenticationSupported="%{duo.forcedAuthenticationSupported:true}">
         <property name="supportedPrincipals">
             <util:list>
                 <bean parent="shibboleth.SAML2AuthnContextClassRef"
