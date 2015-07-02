@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply plugin: 'distribution'
 
 configurations {
     provided
@@ -23,6 +24,16 @@ dependencies {
     provided "net.shibboleth.idp:idp-session-api:${project.'shibboleth.version'}"
     provided "javax.servlet:javax.servlet-api:3.0.1"
     provided "com.google.guava:guava:${project.'guava.version'}"
+}
+
+distributions {
+    main {
+        contents {
+            duplicatesStrategy = 'exclude'
+            from {project.jar}
+            from {(project.configurations.compile - project.configurations.provided)}
+        }
+    }
 }
 
 task wrapper(type: Wrapper) {
