@@ -8,6 +8,7 @@ configurations {
 
 repositories {
     maven { url 'https://build.shibboleth.net/nexus/content/groups/public'}
+    maven { url 'http://dl.bintray.com/uniconiam/maven' }
     jcenter()
     mavenLocal()
 }
