@@ -31,8 +31,10 @@ distributions {
     main {
         contents {
             duplicatesStrategy = 'exclude'
-            from {project.jar}
-            from {(project.configurations.compile - project.configurations.provided)}
+            into ('edit-webapp/WEB-INF/lib') {
+                from { project.jar }
+                from { (project.configurations.compile - project.configurations.provided) }
+            }
         }
     }
 }
