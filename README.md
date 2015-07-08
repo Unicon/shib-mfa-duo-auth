@@ -8,7 +8,7 @@ DuoSecurity multifactor authentication plugin for the Shibboleth identity provid
 
 ## Installation
 
-1. Obtain distribution
+1. Obtain distribution either as a binary download or building from source
     * Binary Download
 
         Download from [https://github.com/Unicon/shib-mfa-duo-auth/releases](https://github.com/Unicon/shib-mfa-duo-auth/releases)
