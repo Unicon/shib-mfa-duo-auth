@@ -8,7 +8,7 @@ DuoSecurity multifactor authentication plugin for the Shibboleth identity provid
 
 ## Installation
 
-1. Obtain distribution
+1. Obtain distribution either as a binary download or building from source
     * Binary Download
 
         Download from [https://github.com/Unicon/shib-mfa-duo-auth/releases](https://github.com/Unicon/shib-mfa-duo-auth/releases)
@@ -23,7 +23,7 @@ DuoSecurity multifactor authentication plugin for the Shibboleth identity provid
 
         The distribution will be found at `build/distributions/shibboleth-duo-auth-{VERSION}.zip`
 1. `unzip shibboleth-duo-auth*.zip`
-1. copy `edit-webapp` and `views` into `${idp.home}`
+1. copy `edit-webapp`, `conf` and `views` into `${idp.home}`; eg `cd shibboleth-duo-auth*; cp -R * ${idp.home}`
 1. modify `${idp.home}/conf/duo.properties` for your Duo configuration
 1. modify `${idp.home}/conf/idp.properties`. edit the following properties:
     * `idp.additionalProperties`: add `/conf/duo.properties`:
