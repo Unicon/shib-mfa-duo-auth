@@ -59,6 +59,7 @@ DuoSecurity multifactor authentication plugin for the Shibboleth identity provid
                 </param-value>
         </context-param>
         ```
+
     * `idp` servlet, `contextConfigLocation` init-param
 
         ```
@@ -67,7 +68,8 @@ DuoSecurity multifactor authentication plugin for the Shibboleth identity provid
             <param-value>classpath*:/META-INF/shibboleth-idp/conf/webflow-config.xml ${idp.home}/system/conf/mvc-beans.xml ${idp.home}/system/conf/webflow-config.xml</param-value>
         </init-param>
         ```
-1. rebuild war file
+
+1. rebuild the IdP war file
 
     ```
     cd ${idp.home}/bin
