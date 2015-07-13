@@ -2,6 +2,9 @@
 
 DuoSecurity multifactor authentication plugin for the Shibboleth identity provider v3.
 
+> This project is made public here on Github as part of Unicon's [Open Source Support program](https://unicon.net/opensource).
+Professional Support / Integration Assistance for this module is available. For more information [visit](https://unicon.net/opensource/shibboleth).
+
 ## Features
 
 * Allows the `http://www.duosecurity.com/` authnContext
