@@ -26,7 +26,7 @@ Professional Support / Integration Assistance for this module is available. For 
 
         The distribution will be found at `build/distributions/shibboleth-duo-auth-{VERSION}.zip`
 1. `unzip shibboleth-duo-auth*.zip`
-1. copy `edit-webapp`, `conf` and `views` into `${idp.home}`; eg `cd shibboleth-duo-auth*; cp -R * ${idp.home}`
+1. copy the `edit-webapp`, `conf` and `views` directories from the distribution into `${idp.home}`; eg `cd shibboleth-duo-auth*; cp -R * ${idp.home}`
 1. modify `${idp.home}/conf/duo.properties` for your Duo configuration
 1. modify `${idp.home}/conf/idp.properties`. edit the following properties:
     * `idp.additionalProperties`: add `/conf/duo.properties`:
