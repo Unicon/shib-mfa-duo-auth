@@ -34,11 +34,16 @@ class Config {
     @PostConstruct
     def setup() {
         // Build the flows and register them
-        def flowDefinitionRegistry = new FlowDefinitionRegistryBuilder(applicationContext, flowBuilderServices)
-                .setParent(flowRegistry)
-                .addFlowLocation('classpath:/META-INF/shibboleth-idp/flows/authn/Duo/duo-authn-flow.xml', 'authn/Duo')
-                .addFlowLocation('classpath:/META-INF/shibboleth-idp/flows/c14n/Duo/duo-c14n-flow.xml', 'c14n/Duo')
-                .build()
+        def flowDefinitionRegistry = new FlowDefinitionRegistryBuilder(applicationContext, flowBuilderServices).with {
+            setParent(this.flowRegistry)
+            if (!this.flowRegistry.containsFlowDefinition('authn/Duo')) {
+                addFlowLocation('classpath:/META-INF/shibboleth-idp/flows/authn/Duo/duo-authn-flow.xml', 'authn/Duo')
+            }
+            if (!this.flowRegistry.containsFlowDefinition('c14n/Duo')) {
+                addFlowLocation('classpath:/META-INF/shibboleth-idp/flows/c14n/Duo/duo-c14n-flow.xml', 'c14n/Duo')
+            }
+            build()
+        }
         flowDefinitionRegistry.flowDefinitionIds.each {
             flowRegistry.registerFlowDefinition(flowDefinitionRegistry.getFlowDefinition(it))
         }
