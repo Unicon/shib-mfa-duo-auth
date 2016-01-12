@@ -1,5 +1,6 @@
 apply plugin: 'groovy'
 apply plugin: 'distribution'
+apply plugin: 'maven'
 
 configurations {
     provided
@@ -16,6 +17,7 @@ repositories {
 dependencies {
     compile "org.codehaus.groovy:groovy-all:${project.'groovy.version'}"
     compile "net.unicon.iam:duo-java:${project.'duo-java.version'}"
+    compile "com.duosecurity:duo-client:0.2.1"
 
     provided "org.springframework:spring-context:${project.'spring.version'}"
     provided "org.springframework.webflow:spring-webflow:${project.'spring-webflow.version'}"

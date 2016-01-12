@@ -1,6 +1,8 @@
 package net.unicon.iam.shibboleth.idp.authn.duo.authn
 
+import com.duosecurity.client.Http
 import com.duosecurity.duoweb.DuoWeb
+import groovy.json.JsonSlurper
 import net.shibboleth.idp.authn.context.AuthenticationContext
 import net.shibboleth.idp.authn.context.SubjectContext
 import net.shibboleth.idp.session.context.SessionContext
@@ -16,19 +18,25 @@ import org.springframework.stereotype.Service
  *     <li>duo.apiHost</li>
  * </ul>
  */
-@Service('duoAuthenticationService')
 class DuoAuthenticationService {
-    @Value('%{duo.integrationKey}')
     private final String integrationKey
 
-    @Value('%{duo.secretKey}')
     private final String secretKey
 
-    @Value('%{duo.applicationKey}')
     private final String applicationKey
 
-    @Value('%{duo.apiHost}')
     private final String apiHost
+
+    public DuoAuthenticationService() {
+
+    }
+
+    public DuoAuthenticationService(String integrationKey, String secretKey, String applicationKey, String apiHost) {
+        this.integrationKey = integrationKey
+        this.secretKey = secretKey
+        this.applicationKey = applicationKey
+        this.apiHost = apiHost
+    }
 
     String generateSignedRequestToken(final String username) {
         DuoWeb.signRequest(this.integrationKey, this.secretKey, this.applicationKey, username)
@@ -44,5 +52,19 @@ class DuoAuthenticationService {
 
     String getApiHost() {
         return this.apiHost
+    }
+
+    boolean hasDuoAccount(final String username) {
+        def response = new Http('POST', this.apiHost, '/auth/v2/preauth', 10).with {
+            addParam('username', username)
+            signRequest(this.integrationKey, this.secretKey)
+            executeHttpRequest()
+        }
+        if (!(response.code() == 200 && response.message() == 'OK')) {
+            // there was a problem. right now we just fake like the user doesn't have an account
+            return false
+        }
+        def json = new JsonSlurper().parse(response.body().byteStream())
+        return json.response.result != 'deny'
     }
 }
