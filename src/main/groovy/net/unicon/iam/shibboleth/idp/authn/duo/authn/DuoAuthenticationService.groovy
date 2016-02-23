@@ -6,8 +6,6 @@ import groovy.json.JsonSlurper
 import net.shibboleth.idp.authn.context.AuthenticationContext
 import net.shibboleth.idp.authn.context.SubjectContext
 import net.shibboleth.idp.session.context.SessionContext
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.stereotype.Service
 
 /**
  * Service for handling Duo Security authentication. Will need the following keys in your <em>idp.properties</em> file:

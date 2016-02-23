@@ -1,6 +1,5 @@
 package net.unicon.iam.shibboleth.idp.authn.duo.authn
 
-import com.duosecurity.client.Http
 import groovy.util.logging.Slf4j
 import net.shibboleth.idp.authn.context.AuthenticationContext
 import net.shibboleth.idp.authn.context.SubjectContext

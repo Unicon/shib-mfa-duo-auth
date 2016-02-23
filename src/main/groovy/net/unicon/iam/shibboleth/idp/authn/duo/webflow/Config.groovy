@@ -1,8 +1,6 @@
 package net.unicon.iam.shibboleth.idp.authn.duo.webflow
 
 import groovy.util.logging.Slf4j
-import net.shibboleth.idp.authn.AuthenticationFlowDescriptor
-import net.shibboleth.idp.authn.SubjectCanonicalizationFlowDescriptor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.ApplicationContext
@@ -12,7 +10,6 @@ import org.springframework.webflow.definition.registry.FlowDefinitionRegistry
 import org.springframework.webflow.engine.builder.support.FlowBuilderServices
 
 import javax.annotation.PostConstruct
-import javax.annotation.Resource
 
 /**
  * Spring configuration for shibboleth webflows for Duo Security authentication
