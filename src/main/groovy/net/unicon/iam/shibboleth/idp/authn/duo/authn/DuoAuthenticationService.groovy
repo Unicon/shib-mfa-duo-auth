@@ -63,6 +63,6 @@ class DuoAuthenticationService {
             return false
         }
         def json = new JsonSlurper().parse(response.body().byteStream())
-        return json.response.result != 'deny'
+        return json.response.result in ['allow', 'auth']
     }
 }
