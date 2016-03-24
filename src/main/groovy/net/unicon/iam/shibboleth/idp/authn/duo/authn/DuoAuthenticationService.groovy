@@ -11,7 +11,7 @@ import net.shibboleth.idp.session.context.SessionContext
  * Service for handling Duo Security authentication. Will need the following keys in your <em>idp.properties</em> file:
  * <ul>
  *     <li>duo.integrationKey</li>
- *     <li>duo.secrectKey</li>
+ *     <li>duo.secretKey</li>
  *     <li>duo.applicationKey</li>
  *     <li>duo.apiHost</li>
  * </ul>
