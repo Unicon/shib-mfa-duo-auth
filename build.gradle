@@ -120,7 +120,7 @@ task uploadMaven(type: com.jfrog.bintray.gradle.BintrayUploadTask) {
     dependsOn sourceJar
 }
 
-// afterReleaseBuild.dependsOn uploadDist
+afterReleaseBuild.dependsOn uploadDist
 afterReleaseBuild.dependsOn uploadMaven
 
 task wrapper(type: Wrapper) {
