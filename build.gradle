@@ -50,28 +50,6 @@ distributions {
     }
 }
 
-/*
-bintray {
-    user = bintrayUsername
-    key = bintrayAPIKey
-    pkg {
-        repo = 'generic'
-        name = rootProject.name
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/Unicon/shib-mfa-duo-auth.git'
-
-        version {
-            name = project.version
-        }
-
-        filesSpec {
-            from distZip
-            into '.'
-        }
-    }
-}
- */
-
 task sourceJar(type: Jar) {
     from sourceSets.main.allGroovy
 }
@@ -105,6 +83,7 @@ task uploadDist(type: com.jfrog.bintray.gradle.BintrayUploadTask) {
     apiUrl = 'https://api.bintray.com'
     user = bintrayUsername
     apiKey = bintrayAPIKey
+    userOrg = 'uniconiam'
     packageName = rootProject.name
     repoName = 'generic'
 
@@ -127,6 +106,7 @@ task uploadMaven(type: com.jfrog.bintray.gradle.BintrayUploadTask) {
     apiUrl = 'https://api.bintray.com'
     user = bintrayUsername
     apiKey = bintrayAPIKey
+    userOrg = 'uniconiam'
     packageName = rootProject.name
     repoName = 'maven'
 
