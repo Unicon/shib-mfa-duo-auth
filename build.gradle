@@ -135,6 +135,9 @@ task uploadMaven(type: com.jfrog.bintray.gradle.BintrayUploadTask) {
     packageVcsUrl = 'https://github.com/Unicon/shib-mfa-duo-auth.git'
 
     publications = ['mavenJava']
+    dependsOn build
+    dependsOn 'generatePomFileForMavenJavaPublication'
+    dependsOn sourceJar
 }
 
 afterReleaseBuild.dependsOn uploadDist
