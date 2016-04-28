@@ -65,4 +65,9 @@ class DuoAuthenticationService {
         def json = new JsonSlurper().parse(response.body().byteStream())
         return json.response.result in ['allow', 'auth']
     }
+
+    boolean hasDuoAccount(final AuthenticationContext authenticationContext) {
+        def username = (authenticationContext.parent.getSubcontext(SubjectContext)?:authenticationContext.parent.getSubcontext(SessionContext).idPSession).principalName
+        return hasDuoAccount(username)
+    }
 }
