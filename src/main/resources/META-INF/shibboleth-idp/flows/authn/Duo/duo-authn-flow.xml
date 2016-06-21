@@ -7,7 +7,7 @@
         <binder>
             <binding property="signedDuoResponse"/>
         </binder>
-        <on-entry>
+        <on-render>
             <evaluate expression="environment" result="viewScope.environment"/>
             <evaluate
                     expression="opensamlProfileRequestContext.getSubcontext(T(net.shibboleth.idp.authn.context.AuthenticationContext))"
@@ -16,7 +16,7 @@
             <set name="viewScope.sigRequest"
                  value="duoAuthenticationService.generateSignedRequestToken(authenticationContext)"/>
             <set name="viewScope.apiHost" value="duoAuthenticationService.getApiHost()"/>
-        </on-entry>
+        </on-render>
         <transition on="proceed" bind="true" validate="false" to="validateDuo"/>
     </view-state>
 
