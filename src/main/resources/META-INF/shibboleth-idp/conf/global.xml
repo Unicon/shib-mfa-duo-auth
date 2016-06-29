@@ -27,4 +27,11 @@
             <bean class="net.unicon.iam.shibboleth.idp.authn.duo.c14n.DuoSubjectCanonicalizationActivationCondition" />
         </property>
     </bean>
+
+    <bean id="duoAuthenticationService"
+          class="net.unicon.iam.shibboleth.idp.authn.duo.authn.DuoAuthenticationService"
+          c:integrationKey="%{duo.integrationKey}"
+          c:secretKey="%{duo.secretKey}"
+          c:applicationKey="%{duo.applicationKey}"
+          c:apiHost="%{duo.apiHost}" />
 </beans>
