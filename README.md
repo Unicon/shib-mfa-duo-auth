@@ -68,7 +68,7 @@ Professional Support / Integration Assistance for this module is available. For 
         ```
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath*:/META-INF/shibboleth-idp/conf/webflow-config.xml ${idp.home}/system/conf/mvc-beans.xml ${idp.home}/system/conf/webflow-config.xml</param-value>
+            <param-value>classpath*:/META-INF/shibboleth-idp/conf/webflow-config.xml,${idp.home}/system/conf/mvc-beans.xml,${idp.home}/system/conf/webflow-config.xml</param-value>
         </init-param>
         ```
 
