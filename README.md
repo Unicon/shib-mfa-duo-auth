@@ -14,7 +14,7 @@ Professional Support / Integration Assistance for this module is available. For 
 1. Obtain distribution either as a binary download or building from source
     * Binary Download
 
-        Download from [https://github.com/Unicon/shib-mfa-duo-auth/releases](https://github.com/Unicon/shib-mfa-duo-auth/releases)
+        Download from [https://bintray.com/uniconiam/generic/shibboleth-duo-auth/view](https://bintray.com/uniconiam/generic/shibboleth-duo-auth/view)
 
     * From Source
 
@@ -56,10 +56,7 @@ Professional Support / Integration Assistance for this module is available. For 
         ```
         <context-param>
                 <param-name>contextConfigLocation</param-name>
-                <param-value>
-                    classpath*:/META-INF/shibboleth-idp/conf/global.xml
-                    ${idp.home}/system/conf/global-system.xml
-                </param-value>
+                <param-value>classpath*:/META-INF/shibboleth-idp/conf/global.xml,${idp.home}/system/conf/global-system.xml,classpath*:/META-INF/net.shibboleth.idp/config.xml</param-value>
         </context-param>
         ```
 
