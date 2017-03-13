@@ -1,3 +1,7 @@
+# Support notice
+
+As of version 3.3 of the Shibboleth identity provider, there is built in support for Duo Security Authentication (https://wiki.shibboleth.net/confluence/display/IDP30/DuoAuthnConfiguration). The Unicon developed module will not be supported in versions 3.3 and following. Features will be moved to the Shibboleth developed facility as appropriate.
+
 # Shibboleth Duo Security Authentication Module
 
 DuoSecurity multifactor authentication plugin for the Shibboleth identity provider v3.
